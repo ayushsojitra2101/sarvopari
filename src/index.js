@@ -1,0 +1,29 @@
+import "react-app-polyfill/ie11";
+import React from "react";
+import ReactDOM from "react-dom";
+import { Route } from "react-router-dom";
+// import App from './App';
+import AdminIndex from "./admin/Index";
+import ClientIndex from "./client/Index";
+//import * as serviceWorker from './serviceWorker';
+import { HashRouter } from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
+
+ReactDOM.render(
+    <HashRouter>
+        <ScrollToTop>
+            <>
+                <Route path="/" exact render={() => <ClientIndex />} />
+                <Route path="/admin" render={() => <AdminIndex />} />
+            </>
+            {/* <App></App> */}
+        </ScrollToTop>
+        ,
+    </HashRouter>,
+    document.getElementById("root")
+);
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: http://bit.ly/CRA-PWA
+//serviceWorker.unregister();
